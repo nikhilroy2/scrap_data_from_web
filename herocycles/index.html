@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="csv_output">
+
+    </div>
+    <script>
+        let csv_output = document.querySelector('#csv_output');
+        fetch('./sample_json.json')
+            .then(res => res.json())
+            .then(data => {
+                //console.log(data.data.data)
+                let data_loop = data.data.data;
+                data_loop.forEach((v) => {
+                    csv_output.innerHTML += 
+                    `
+                    State: ${v.state}
+                    City: ${v.city}
+                    Dealer_Name: ${v.name}
+                    Mobile: ${v.mobile},
+                    `
+                    // state
+                    // console.log(v.state)
+                    // // city 
+                    // console.log(v.city)
+                    // // dealer name
+                    // console.log(v.name)
+                    // //mobile
+                    // console.log(v.mobile)
+                })
+            })
+    </script>
+</body>
+
+</html>
